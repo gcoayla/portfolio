@@ -26,6 +26,10 @@ const Star = () => {
         borderRadius: "50%",
         boxShadow: "0 0 6px 1px rgba(255, 255, 255, 0.7)",
       }}
+      whileHover={{
+        scale: 1.5,
+        boxShadow: "0 0 12px 3px rgba(255, 255, 255, 0.9)",
+      }}
       // Animation: Fade in, then fade out
       animate={{
         opacity: [0, 1, 0.5, 1, 0],

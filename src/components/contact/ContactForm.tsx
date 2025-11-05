@@ -3,7 +3,7 @@ import { Form, FormikProvider } from 'formik';
 import { useContactForm } from '@/hooks/useContactForm';
 import { InputField } from '@/components/ui/InputField';
 import { TextAreaField } from '@/components/ui/TextAreaField';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 
 export const ContactForm = () => {
   const formik = useContactForm();

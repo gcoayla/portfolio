@@ -8,10 +8,9 @@ export const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <nav className="hidden md:flex flex-1">
-          <ul className="flex justify-end space-x-4 w-full">
+    <header className="fixed top-4 right-4 z-50">
+        <nav className="hidden md:flex">
+          <ul className="flex space-x-4">
             <li>
               <Button variant="link" asChild>
                 <a href="#hero">Home</a>
@@ -34,7 +33,7 @@ export const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className="md:hidden flex flex-1 justify-end">
+        <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -47,7 +46,6 @@ export const Header = () => {
             </SheetContent>
           </Sheet>
         </div>
-      </div>
     </header>
   );
 };

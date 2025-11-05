@@ -31,28 +31,18 @@ export const Hero = () => {
           onMouseMove={handleMouseMove}
         >
           <defs>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="5" result="coloredBlur" />
-              <feSpecularLighting
-                in="coloredBlur"
-                surfaceScale="5"
-                specularConstant="0.5"
-                specularExponent="10"
-                result="specular"
-              >
-                <fePointLight
-                  x={mousePosition.x}
-                  y={mousePosition.y}
-                  z="20"
-                />
-              </feSpecularLighting>
-              <feComposite
-                in="specular"
-                in2="SourceGraphic"
-                operator="out"
-                result="specular"
+            <mask id="glow-mask">
+              <rect width="100%" height="100%" fill="black" />
+              <circle
+                cx={mousePosition.x}
+                cy={mousePosition.y}
+                r="40"
+                fill="white"
+                filter="url(#glow-blur)"
               />
-              <feBlend in="SourceGraphic" in2="specular" mode="screen" />
+            </mask>
+            <filter id="glow-blur">
+              <feGaussianBlur stdDeviation="10" />
             </filter>
           </defs>
           <path
@@ -66,7 +56,7 @@ export const Hero = () => {
             fill="none"
             stroke="#508bff"
             strokeWidth="1.5"
-            filter="url(#glow)"
+            mask="url(#glow-mask)"
           />
         </svg>
         <div className="w-full h-32 md:flex-1  bg-rich-black-3" />

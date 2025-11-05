@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -40,16 +40,20 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --color-brand-lightest: #00a6fb; /* Picton Blue */
-  --color-brand-light: #0582ca; /* Steel Blue */
-  --color-brand-default: #006494; /* Lapis Lazuli */
-  --color-brand-dark: #003554; /* Prussian Blue */
-  --color-brand-darkest: #051923; /* Rich Black */
+  --color-indigo-dye: #014c75ff;
+  --color-indigo-dye-2: #014368ff;
+  --color-indigo-dye-3: #013b5bff;
+  --color-prussian-blue: #01324eff;
+  --color-prussian-blue-2: #012a41ff;
+  --color-prussian-blue-3: #002234ff;
+  --color-rich-black: #001927ff;
+  --color-rich-black-2: #00111aff;
+  --color-rich-black-3: #00080dff;
 }
 
 :root {
-  --font-heading: 'IBM Plex Mono', monospace;
-  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-heading: "IBM Plex Mono", monospace;
+  --font-body: "IBM Plex Sans", sans-serif;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

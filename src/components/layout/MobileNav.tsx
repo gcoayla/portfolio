@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@/components/ui/buttonv2";
+import { Button } from "@/components/ui/button";
 
 interface MobileNavProps {
   setOpen: (open: boolean) => void;

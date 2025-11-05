@@ -6,9 +6,16 @@ export const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
 
   const handleMouseMove = (event: React.MouseEvent<SVGSVGElement>) => {
-    const svgRect = event.currentTarget.getBoundingClientRect();
-    const x = event.clientX - svgRect.left;
-    const y = event.clientY - svgRect.top;
+    const svg = event.currentTarget;
+    const svgRect = svg.getBoundingClientRect();
+    const viewBox = svg.viewBox.baseVal;
+
+    const xRatio = viewBox.width / svgRect.width;
+    const yRatio = viewBox.height / svgRect.height;
+
+    const x = (event.clientX - svgRect.left) * xRatio;
+    const y = (event.clientY - svgRect.top) * yRatio;
+
     setMousePosition({ x, y });
   };
 

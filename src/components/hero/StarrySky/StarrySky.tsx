@@ -42,31 +42,87 @@ const Star = () => {
   );
 };
 
+const ShootingStar = () => {
+  const { startX, startY, endX, endY, duration, delay } = useMemo(() => {
+    const startX = random(-20, 120);
+    const startY = random(-20, 60);
+    const endX = startX + random(20, 40);
+    const endY = startY + random(20, 40);
+    return {
+      startX: `${startX}vw`,
+      startY: `${startY}vh`,
+      endX: `${endX}vw`,
+      endY: `${endY}vh`,
+      duration: random(1, 3),
+      delay: random(5, 15),
+    };
+  }, []);
+
+  const angle =
+    (Math.atan2(
+      parseFloat(endY) - parseFloat(startY),
+      parseFloat(endX) - parseFloat(startX)
+    ) *
+      180) /
+    Math.PI;
+
+  return (
+    <motion.div
+      style={{
+        position: "absolute",
+        top: startY,
+        left: startX,
+        width: "4px",
+        height: "4px",
+        backgroundColor: "white",
+        borderRadius: "50%",
+        boxShadow: "0 0 12px 3px rgba(255, 255, 255, 0.8)",
+      }}
+      initial={{ x: 0, y: 0, opacity: 0 }}
+      animate={{
+        x: `calc(${endX} - ${startX})`,
+        y: `calc(${endY} - ${startY})`,
+        opacity: [0, 1, 1, 0],
+      }}
+      transition={{
+        duration,
+        delay,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "linear",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          width: "2px",
+          height: "200px",
+          backgroundColor: "rgba(255, 255, 255, 0.5)",
+          borderRadius: "50%",
+          transform: `translate(-50%, -50%) rotate(${angle}deg)`,
+          filter: "blur(2px)",
+        }}
+      />
+    </motion.div>
+  );
+};
+
 export const StarrySky = ({ yStars }: { yStars: MotionValue<string> }) => {
   const numStars = 150;
-  const [mousePosition, setMousePosition] = useState({ x: -200, y: -200 });
-
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    setMousePosition({ x: event.clientX, y: event.clientY });
-  };
 
   return (
     <motion.div
       className="absolute inset-0 overflow-hidden z-0"
-      onMouseMove={handleMouseMove}
       style={{ y: yStars }}
     >
-      <motion.div
-        className="absolute w-48 h-48 rounded-full bg-radial-gradient from-white to-transparent mix-blend-screen opacity-50 pointer-events-none"
-        style={{
-          transform: `translate(${mousePosition.x - 96}px, ${
-            mousePosition.y - 96
-          }px)`,
-        }}
-      />
       {[...Array(numStars)].map((_, i) => (
         <Star key={i} />
       ))}
+      <ShootingStar />
+      <ShootingStar />
+      <ShootingStar />
     </motion.div>
   );
 };

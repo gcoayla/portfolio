@@ -1,7 +1,14 @@
 import { useState, useRef } from "react";
 import { Typography } from "../ui/Typography";
 import { StarrySky } from "./StarrySky";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { GithubIcon, LinkedinIcon, InstagramIcon } from "lucide-react";
 
 export const Hero = () => {
   const heroRef = useRef(null);
@@ -36,7 +43,7 @@ export const Hero = () => {
     <section
       ref={heroRef}
       id="hero"
-      className="relative h-lvh p-10 md:p-20 flex flex-col justify-center items-start gap-2 bg-radial-[at_50%_100%] from-rich-black-3 to-rich-black-2 to-rich-black"
+      className="relative h-lvh p-10 md:p-20 flex flex-col justify-center items-start gap-8 bg-radial-[at_50%_100%] from-rich-black-3 to-rich-black-2 to-rich-black"
     >
       <StarrySky yStars={yStars} />
       <div className="absolute inset-0 flex flex-col justify-center z-10">
@@ -74,19 +81,65 @@ export const Hero = () => {
         </svg>
         <div className="w-full h-32 md:flex-1  bg-rich-black-3" />
       </div>
-      <Typography
-        variant="h1"
-        className="uppercase text-white z-20 pointer-events-none"
-      >
-        Hi! I'm Gonzalo Coayla
-      </Typography>
-      <Typography
-        variant="h4"
-        className="max-w=[80%] md:max-w-[70%] text-gray-100 z-20 pointer-events-none"
-      >
-        Senior Frontend Engineer building polished, complex UIs—from interactive
-        3D models to scalable design systems.
-      </Typography>
+      <div className="w-full flex flex-col gap-2">
+        <AnimatePresence>
+          <motion.div
+            className="z-20 pointer-events-none"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <Typography variant="h1" className="uppercase text-white">
+              Hi! I'm Gonzalo Coayla
+            </Typography>
+          </motion.div>
+        </AnimatePresence>
+        <AnimatePresence>
+          <motion.div
+            className="z-20 pointer-events-none"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <Typography
+              variant="h4"
+              className="max-w=[80%] md:max-w-[70%] text-gray-100"
+            >
+              Senior Frontend Engineer building polished, complex UIs—from
+              interactive 3D models to scalable design systems.
+            </Typography>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      <AnimatePresence>
+        <motion.div
+          className="z-20 flex gap-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <Button variant={"ghost"} size="sm" className="cursor rounded-full">
+            <GithubIcon />
+          </Button>
+          <Button variant={"ghost"} size="sm" className="cursor rounded-full">
+            <LinkedinIcon />
+          </Button>
+          <Button variant={"ghost"} size="sm" className="cursor rounded-full">
+            <InstagramIcon />
+          </Button>
+        </motion.div>
+      </AnimatePresence>
+      <AnimatePresence>
+        <motion.div
+          className="z-20 flex flex-col md:flex-row gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <Button variant={"default"} className="cursor">
+            View my work
+          </Button>
+          <Button variant={"secondary"} className="cursor">
+            Get in touch
+          </Button>
+        </motion.div>
+      </AnimatePresence>
     </section>
   );
 };

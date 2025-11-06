@@ -29,6 +29,7 @@ const Star = () => {
 
   return (
     <motion.div
+      className="opacity-0"
       style={{
         position: "absolute",
         top: top,

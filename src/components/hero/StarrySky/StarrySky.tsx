@@ -1,5 +1,5 @@
-import React, { useMemo } from "react";
-import { motion } from "framer-motion";
+import React, { useMemo, useState } from "react";
+import { motion, MotionValue } from "framer-motion";
 
 const random = (min: number, max: number) => Math.random() * (max - min) + min;
 
@@ -42,12 +42,31 @@ const Star = () => {
   );
 };
 
-export const StarrySky = ({ numStars = 150 }) => {
+export const StarrySky = ({ yStars }: { yStars: MotionValue<string> }) => {
+  const numStars = 150;
+  const [mousePosition, setMousePosition] = useState({ x: -200, y: -200 });
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    setMousePosition({ x: event.clientX, y: event.clientY });
+  };
+
   return (
-    <div className="absolute inset-0 overflow-hidden z-0">
+    <motion.div
+      className="absolute inset-0 overflow-hidden z-0"
+      onMouseMove={handleMouseMove}
+      style={{ y: yStars }}
+    >
+      <motion.div
+        className="absolute w-48 h-48 rounded-full bg-radial-gradient from-white to-transparent mix-blend-screen opacity-50 pointer-events-none"
+        style={{
+          transform: `translate(${mousePosition.x - 96}px, ${
+            mousePosition.y - 96
+          }px)`,
+        }}
+      />
       {[...Array(numStars)].map((_, i) => (
         <Star key={i} />
       ))}
-    </div>
+    </motion.div>
   );
 };

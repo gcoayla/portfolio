@@ -57,31 +57,34 @@ const Star = () => {
 
 const ShootingStar = () => {
   const [width, height] = useWindowSize();
+  const [key, setKey] = useState(0);
+  const [props, setProps] = useState(null);
 
-  const { startX, startY, endX, endY, duration, delay } = useMemo(() => {
+  const randomize = () => {
+    if (width === 0 || height === 0) return;
     const startX = random(-50, width + 50);
     const startY = random(-50, height + 50);
     const endX = random(-50, width + 50);
     const endY = random(-50, height + 50);
+    const duration = random(2, 5);
+    const delay = random(5, 15);
+    const angle = (Math.atan2(endY - startY, endX - startX) * 180) / Math.PI;
+    setProps({ startX, startY, endX, endY, duration, angle, delay });
+  };
 
-    return {
-      startX,
-      startY,
-      endX,
-      endY,
-      duration: random(2, 5),
-      delay: random(10, 25),
-    };
+  useEffect(() => {
+    randomize();
   }, [width, height]);
 
-  const angle = (Math.atan2(endY - startY, endX - startX) * 180) / Math.PI;
+  if (!props) return null;
 
   return (
     <motion.div
+      key={key}
       style={{
         position: "absolute",
-        top: startY,
-        left: startX,
+        top: props.startY,
+        left: props.startX,
         width: "4px",
         height: "4px",
         backgroundColor: "white",
@@ -90,16 +93,18 @@ const ShootingStar = () => {
       }}
       initial={{ x: 0, y: 0, opacity: 0 }}
       animate={{
-        x: endX - startX,
-        y: endY - startY,
+        x: props.endX - props.startX,
+        y: props.endY - props.startY,
         opacity: [0, 1, 1, 0],
       }}
       transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        repeatType: "loop",
+        duration: props.duration,
+        delay: props.delay,
         ease: "linear",
+      }}
+      onAnimationComplete={() => {
+        randomize();
+        setKey((k) => k + 1);
       }}
     >
       <div
@@ -111,7 +116,7 @@ const ShootingStar = () => {
           height: "2px",
           backgroundColor: "rgba(255, 255, 255, 0.5)",
           borderRadius: "50%",
-          transform: `translateY(-50%) rotate(${angle}deg)`,
+          transform: `translateY(-50%) rotate(${props.angle}deg)`,
           transformOrigin: "right",
           filter: "blur(2px)",
         }}
@@ -131,8 +136,6 @@ export const StarrySky = ({ yStars }: { yStars: MotionValue<string> }) => {
       {[...Array(numStars)].map((_, i) => (
         <Star key={i} />
       ))}
-      <ShootingStar />
-      <ShootingStar />
       <ShootingStar />
     </motion.div>
   );

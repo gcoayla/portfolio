@@ -1,8 +1,18 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Typography } from "../ui/Typography";
 import { StarrySky } from "./StarrySky";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export const Hero = () => {
+  const heroRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  const yStars = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
 
   const handleMouseMove = (event: React.MouseEvent<SVGSVGElement>) => {
@@ -24,10 +34,11 @@ export const Hero = () => {
 
   return (
     <section
+      ref={heroRef}
       id="hero"
-      className="h-lvh p-10 md:p-20 flex flex-col justify-center items-start gap-2 bg-radial-[at_50%_100%] from-rich-black-3 to-rich-black-2 to-rich-black"
+      className="relative h-lvh p-10 md:p-20 flex flex-col justify-center items-start gap-2 bg-radial-[at_50%_100%] from-rich-black-3 to-rich-black-2 to-rich-black"
     >
-      <StarrySky />
+      <StarrySky yStars={yStars} />
       <div className="absolute inset-0 flex flex-col justify-center z-10">
         <div className="w-full flex-1" />
         <svg
@@ -52,12 +63,7 @@ export const Hero = () => {
               <feGaussianBlur stdDeviation="10" />
             </filter>
           </defs>
-          <path
-            d={pathD}
-            fill="#00080dff"
-            stroke="#002234ff"
-            strokeWidth="1"
-          />
+          <path d={pathD} fill="#00080dff" stroke="#002234ff" strokeWidth="1" />
           <path
             d={pathD}
             fill="none"
@@ -68,12 +74,15 @@ export const Hero = () => {
         </svg>
         <div className="w-full h-32 md:flex-1  bg-rich-black-3" />
       </div>
-      <Typography variant="h1" className="uppercase text-white z-20">
+      <Typography
+        variant="h1"
+        className="uppercase text-white z-20 pointer-events-none"
+      >
         Hi! I'm Gonzalo Coayla
       </Typography>
       <Typography
         variant="h4"
-        className="max-w=[80%] md:max-w-[70%] text-gray-100 z-20"
+        className="max-w=[80%] md:max-w-[70%] text-gray-100 z-20 pointer-events-none"
       >
         Senior Frontend Engineer building polished, complex UIs—from interactive
         3D models to scalable design systems.

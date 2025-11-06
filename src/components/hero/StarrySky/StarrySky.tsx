@@ -69,8 +69,8 @@ const ShootingStar = () => {
       startY,
       endX,
       endY,
-      duration: random(1, 3),
-      delay: random(5, 15),
+      duration: random(2, 5),
+      delay: random(10, 25),
     };
   }, [width, height]);
 
@@ -106,13 +106,13 @@ const ShootingStar = () => {
         style={{
           position: "absolute",
           top: "50%",
-          left: "50%",
-          width: "2px",
-          height: "200px",
+          left: "calc(50% - 200px)",
+          width: "200px",
+          height: "2px",
           backgroundColor: "rgba(255, 255, 255, 0.5)",
           borderRadius: "50%",
-          transform: `translate(-50%, 0) rotate(${angle - 90}deg)`,
-          transformOrigin: "top",
+          transform: `translateY(-50%) rotate(${angle}deg)`,
+          transformOrigin: "right",
           filter: "blur(2px)",
         }}
       />

@@ -1,7 +1,20 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { motion, MotionValue } from "framer-motion";
 
 const random = (min: number, max: number) => Math.random() * (max - min) + min;
+
+const useWindowSize = () => {
+  const [size, setSize] = useState([0, 0]);
+  useEffect(() => {
+    const updateSize = () => {
+      setSize([window.innerWidth, window.innerHeight]);
+    };
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
+};
 
 const Star = () => {
   const { top, left, size, duration, delay } = useMemo(() => {
@@ -43,28 +56,25 @@ const Star = () => {
 };
 
 const ShootingStar = () => {
+  const [width, height] = useWindowSize();
+
   const { startX, startY, endX, endY, duration, delay } = useMemo(() => {
-    const startX = random(-20, 120);
-    const startY = random(-20, 60);
-    const endX = startX + random(20, 40);
-    const endY = startY + random(20, 40);
+    const startX = random(-50, width + 50);
+    const startY = random(-50, height + 50);
+    const endX = random(-50, width + 50);
+    const endY = random(-50, height + 50);
+
     return {
-      startX: `${startX}vw`,
-      startY: `${startY}vh`,
-      endX: `${endX}vw`,
-      endY: `${endY}vh`,
+      startX,
+      startY,
+      endX,
+      endY,
       duration: random(1, 3),
       delay: random(5, 15),
     };
-  }, []);
+  }, [width, height]);
 
-  const angle =
-    (Math.atan2(
-      parseFloat(endY) - parseFloat(startY),
-      parseFloat(endX) - parseFloat(startX)
-    ) *
-      180) /
-    Math.PI;
+  const angle = (Math.atan2(endY - startY, endX - startX) * 180) / Math.PI;
 
   return (
     <motion.div
@@ -80,8 +90,8 @@ const ShootingStar = () => {
       }}
       initial={{ x: 0, y: 0, opacity: 0 }}
       animate={{
-        x: `calc(${endX} - ${startX})`,
-        y: `calc(${endY} - ${startY})`,
+        x: endX - startX,
+        y: endY - startY,
         opacity: [0, 1, 1, 0],
       }}
       transition={{
@@ -101,7 +111,8 @@ const ShootingStar = () => {
           height: "200px",
           backgroundColor: "rgba(255, 255, 255, 0.5)",
           borderRadius: "50%",
-          transform: `translate(-50%, -50%) rotate(${angle}deg)`,
+          transform: `translate(-50%, 0) rotate(${angle - 90}deg)`,
+          transformOrigin: "top",
           filter: "blur(2px)",
         }}
       />

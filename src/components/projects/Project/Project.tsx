@@ -1,5 +1,5 @@
-import React from 'react';
-import { ProjectCard } from './ProjectCard';
+import React from "react";
+import { ProjectContainer } from "./ProjectContainer";
 
 interface ProjectProps {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ interface ProjectProps {
 export const Project = ({ children }: ProjectProps) => {
   return (
     <div className="w-full h-screen p-4">
-      <ProjectCard>{children}</ProjectCard>
+      <ProjectContainer>{children}</ProjectContainer>
     </div>
   );
 };

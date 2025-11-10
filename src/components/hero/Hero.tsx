@@ -43,7 +43,7 @@ export const Hero = () => {
     <section
       ref={heroRef}
       id="hero"
-      className="relative h-lvh p-10 md:p-20 flex flex-col justify-center items-start gap-8 bg-radial-[at_50%_100%] from-rich-black-3 to-rich-black-2 to-rich-black"
+      className="relative h-lvh p-10 md:p-20 flex flex-col justify-center items-start gap-8 bg-radial-[at_50%_100%] from-rich-black-3 to-rich-black-2 to-rich-black overflow-hidden"
     >
       <StarrySky yStars={yStars} />
       <div className="absolute inset-0 flex flex-col justify-center z-10">

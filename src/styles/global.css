@@ -130,3 +130,29 @@
     @apply bg-background text-foreground;
   }
 }
+
+.technology-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background: linear-gradient(to top, #508bff, #508bff) no-repeat;
+  background-size: 0 100%;
+  transition: background-size 0.3s ease-in-out;
+}
+
+.technology-icon:hover::before {
+  background-size: 100% 100%;
+}
+
+.technology-icon .icon {
+  transition: color 0.3s ease-in-out;
+}
+
+.technology-icon:hover .icon {
+  color: #508bff;
+}

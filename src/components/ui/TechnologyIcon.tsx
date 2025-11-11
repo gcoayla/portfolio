@@ -32,20 +32,16 @@ const technologyIcon = tv({
 });
 
 const iconVariants = tv({
-  base: 'relative z-10 transition-colors ease-in-out',
+  base: 'relative z-10 transition-colors ease-in-out text-white',
   variants: {
     size: {
       small: 'w-6 h-6',
       medium: 'w-8 h-8',
-      large: 'w-10 w-10',
-    },
-    color: {
-      default: 'text-white',
+      large: 'w-10 h-10',
     },
   },
   defaultVariants: {
     size: 'medium',
-    color: 'default',
   },
 });
 
@@ -66,9 +62,8 @@ const TechnologyIcon: React.FC<TechnologyIconProps> = ({
   const Icon = iconMap[technology] || icons['Code'];
 
   return (
-    <div className={clsx(technologyIcon({ size, color }), className)}>
-      <Icon className={clsx(iconVariants({ size, color }), 'group-hover:text-white')} />
-      <div className="absolute z-0 top-full left-0 w-full h-full bg-[#508bff] group-hover:top-0 transition-all duration-300 ease-in-out"></div>
+    <div className={clsx(technologyIcon({ size, color }), 'technology-icon', className)}>
+      <Icon className={clsx(iconVariants({ size }), 'icon')} />
     </div>
   );
 };

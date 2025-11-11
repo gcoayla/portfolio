@@ -1,5 +1,7 @@
 import { Typography } from "@/components/ui/Typography";
-import skullcandyMock from "@/assets/mock.png";
+import skullcandyMock from "@/assets/mock.PNG";
+import TechnologyIcon from "@/components/ui/TechnologyIcon";
+import { Button } from "@/components/ui/button";
 
 export const Skullcandy = () => {
   return (
@@ -15,6 +17,22 @@ export const Skullcandy = () => {
             integration.
           </Typography>
         </div>
+        <div className="flex flex-col gap-6">
+          <Typography variant="h6" className="text-white">
+            Technologies Used
+          </Typography>
+          <div className="flex gap-4">
+            <TechnologyIcon technology="React" size="small" />
+            <TechnologyIcon technology="TypeScript" size="small" />
+            <TechnologyIcon technology="Electron" size="small" />
+            <TechnologyIcon technology="Node.js" size="small" />
+            <TechnologyIcon technology="Jest" size="small" />
+            <TechnologyIcon technology="Vite" size="small" />
+          </div>
+        </div>
+        <Button variant={"default"} size="lg">
+          VIew study case
+        </Button>
       </div>
       <div className="w-[90%] md:w-[55%] flex justify-center items-center">
         <img src={skullcandyMock.src} alt="Skullcandy Skull-HQ mock image" />

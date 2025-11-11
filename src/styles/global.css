@@ -130,3 +130,47 @@
     @apply bg-background text-foreground;
   }
 }
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.tech-icon-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from var(--angle),
+    #508bff,
+    #508bff 50%,
+    white 50%,
+    white
+  );
+  padding: 1px;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: --angle 0.3s ease-in-out;
+}
+
+.tech-icon-container:hover::before {
+  --angle: 360deg;
+}
+
+.icon-hover-fill {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  transition: clip-path 0.3s ease-in-out;
+}
+
+.tech-icon-container:hover .icon-hover-fill {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}

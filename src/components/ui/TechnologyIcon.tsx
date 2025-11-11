@@ -1,54 +1,86 @@
 import React from 'react';
 import { icons, type LucideProps } from 'lucide-react';
+import {
+  SiTypescript,
+  SiJavascript,
+  SiCplusplus,
+  SiReact,
+  SiElectron,
+  SiNodedotjs,
+  SiNextdotjs,
+  SiRedux,
+  SiThreedotjs,
+  SiGatsby,
+  SiAntdesign,
+  SiRadixui,
+  SiShadcnui,
+  SiTailwindcss,
+  SiCss3,
+  SiSass,
+  SiStyledcomponents,
+  SiJest,
+  SiPlaywright,
+  SiTestinglibrary,
+  SiStorybook,
+  SiFigma,
+  SiVite,
+  SiApollographql,
+  SiGrpc,
+  SiI18next,
+  SiZod,
+  SiGithubactions,
+  SiFirebase,
+  SiSentry,
+} from '@icons-pack/react-simple-icons';
 import { tv, type VariantProps } from 'tailwind-variants';
 import { clsx } from 'clsx';
 
 const iconMap: Record<string, React.FC<LucideProps>> = {
   // Languages
-  TypeScript: icons['Type'],
-  JavaScript: icons['FileJson2'],
-  'C++': icons['FileCode2'],
+  TypeScript: SiTypescript,
+  JavaScript: SiJavascript,
+  'C++': SiCplusplus,
 
   // Frameworks & Libraries
-  React: icons['Atom'],
-  Electron: icons['AppWindow'],
-  'Node.js': icons['Server'],
-  'Next.js': icons['Router'],
-  Redux: icons['Replace'],
-  'Three.js': icons['Cube'],
-  Gatsby: icons['Rocket'],
-  'Ant Design': icons['BoxSelect'],
-  'Radix UI': icons['Disc'],
-  Shadcn: icons['PanelsTopLeft'],
+  React: SiReact,
+  Electron: SiElectron,
+  'Node.js': SiNodedotjs,
+  'Next.js': SiNextdotjs,
+  Redux: SiRedux,
+  'Three.js': SiThreedotjs,
+  Gatsby: SiGatsby,
+  'Ant Design': SiAntdesign,
+  'Radix UI': SiRadixui,
+  Shadcn: SiShadcnui,
 
   // Styling
-  Tailwind: icons['Wind'],
-  CSS3: icons['Paintbrush'],
-  SASS: icons['Palette'],
-  'styled-components': icons['PenTool'],
+  Tailwind: SiTailwindcss,
+  CSS3: SiCss3,
+  SASS: SiSass,
+  'styled-components': SiStyledcomponents,
 
   // Testing
-  Jest: icons['TestTube2'],
-  Playwright: icons['MonitorPlay'],
-  'Testing Library': icons['Beaker'],
+  Jest: SiJest,
+  Playwright: SiPlaywright,
+  'Testing Library': SiTestinglibrary,
 
   // Design Systems
-  Storybook: icons['BookOpen'],
-  Figma: icons['Figma'],
+  Storybook: SiStorybook,
+  Figma: SiFigma,
   'Component-Driven Development': icons['Blocks'],
   'UI/UX Collaboration': icons['Users'],
   Accessibility: icons['Accessibility'],
 
   // APIs & Tools
-  Vite: icons['Zap'],
-  'Apollo/GraphQL': icons['Waypoints'],
+  Vite: SiVite,
+  'Apollo/GraphQL': SiApollographql,
   'Node Addon API': icons['Plug'],
-  gRPC: icons['ServerCog'],
-  i18next: icons['Languages'],
-  Zod: icons['ShieldCheck'],
-  'GitHub Actions': icons['Github'],
-  'Firebase Analytics': icons['BarChart'],
-  Sentry: icons['Bug'],
+  gRPC: SiGrpc,
+  i18next: SiI18next,
+  Zod: SiZod,
+  'GitHub Actions': SiGithubactions,
+  'Firebase Analytics': SiFirebase,
+  Sentry: SiSentry,
 };
 
 const technologyIcon = tv({

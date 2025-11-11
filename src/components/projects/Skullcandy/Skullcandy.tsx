@@ -1,5 +1,6 @@
 import { Typography } from "@/components/ui/Typography";
-import skullcandyMock from "@/assets/mock.png";
+import skullcandyMock from "@/assets/mock.PNG";
+import TechnologyIcon from "@/components/ui/TechnologyIcon";
 
 export const Skullcandy = () => {
   return (
@@ -14,6 +15,17 @@ export const Skullcandy = () => {
             creating a polished, modern front-end and enabling deep hardware
             integration.
           </Typography>
+        </div>
+        <div className="flex flex-col gap-4">
+          <Typography variant="h6" className="text-white">
+            Technologies Used
+          </Typography>
+          <div className="flex gap-4">
+            <TechnologyIcon technology="React" size="small" />
+            <TechnologyIcon technology="TypeScript" size="small" />
+            <TechnologyIcon technology="NextJS" size="small" />
+            <TechnologyIcon technology="TailwindCSS" size="small" />
+          </div>
         </div>
       </div>
       <div className="w-[90%] md:w-[55%] flex justify-center items-center">

@@ -7,7 +7,7 @@ interface ProjectProps {
 
 export const Project = ({ children }: ProjectProps) => {
   return (
-    <div className="w-full h-screen p-4">
+    <div className="w-full h-screen p-4 max-w-[2532px]">
       <ProjectContainer>{children}</ProjectContainer>
     </div>
   );

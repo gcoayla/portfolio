@@ -5,8 +5,14 @@ import { Skullcandy } from "./Skullcandy";
 
 export const FeaturedProjects = () => {
   return (
-    <section id="projects" className="flex flex-col gap-4 bg-rich-black-3">
-      <Typography variant="h1" className="text-white p-10 md:p-20">
+    <section
+      id="projects"
+      className="flex flex-col items-center gap-4 bg-rich-black-3"
+    >
+      <Typography
+        variant="h1"
+        className="text-white w-full text-left pt-10 px-10 md:px-20"
+      >
         My Work
       </Typography>
       <Project>

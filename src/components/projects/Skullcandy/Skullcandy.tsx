@@ -32,17 +32,12 @@ export const Skullcandy = () => {
           </div>
         </div>
         <div className="flex gap-4">
-          <Button variant={"default"} size="lg">
-            VIew study case
-          </Button>
           <Modal
             trigger={
-              <Button variant={"outline"} size="lg">
-                View More
+              <Button variant={"default"} size="lg">
+                VIew study case
               </Button>
             }
-            title="Skullcandy"
-            description="This is some example content for the modal."
           >
             <Typography variant="h3">Example</Typography>
           </Modal>

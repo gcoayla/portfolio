@@ -89,7 +89,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
           >
             <Typography variant="h1" className="uppercase text-white">
-              Hi! I'm Gonzalo Coayla
+              Frontend Developer
             </Typography>
           </motion.div>
         </AnimatePresence>
@@ -100,11 +100,14 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
           >
             <Typography
-              variant="h4"
+              variant="h5"
               className="max-w=[80%] md:max-w-[70%] text-gray-100"
             >
-              Senior Frontend Engineer building polished, complex UIs—from
-              interactive 3D models to scalable design systems.
+              I'm Gonzalo Coayla, a Senior Frontend Engineer based in Arequipa,
+              Perú. I specialize in developing complex web applications and
+              scalable, component-based design systems. My focus is on creating
+              polished, accessible, and reliable interfaces that not only look
+              great but also provide a seamless and intuitive user experience.
             </Typography>
           </motion.div>
         </AnimatePresence>

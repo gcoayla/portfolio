@@ -15,11 +15,10 @@ import {
   SiRadixui,
   SiShadcnui,
   SiTailwindcss,
-  SiCss3,
+  SiCss,
   SiSass,
   SiStyledcomponents,
   SiJest,
-  SiPlaywright,
   SiTestinglibrary,
   SiStorybook,
   SiFigma,
@@ -54,13 +53,13 @@ const iconMap: Record<string, React.FC<LucideProps>> = {
 
   // Styling
   Tailwind: SiTailwindcss,
-  CSS3: SiCss3,
+  CSS3: SiCss,
   SASS: SiSass,
   'styled-components': SiStyledcomponents,
 
   // Testing
   Jest: SiJest,
-  Playwright: SiPlaywright,
+  Playwright: icons['MonitorPlay'],
   'Testing Library': SiTestinglibrary,
 
   // Design Systems

@@ -4,13 +4,51 @@ import { tv, type VariantProps } from 'tailwind-variants';
 import { clsx } from 'clsx';
 
 const iconMap: Record<string, React.FC<LucideProps>> = {
-  React: icons['Atom'],
-  NextJS: icons['ArrowRight'],
-  TailwindCSS: icons['Wind'],
+  // Languages
   TypeScript: icons['Type'],
   JavaScript: icons['FileJson2'],
-  Astro: icons['Rocket'],
-  Stripe: icons['CreditCard'],
+  'C++': icons['FileCode2'],
+
+  // Frameworks & Libraries
+  React: icons['Atom'],
+  Electron: icons['AppWindow'],
+  'Node.js': icons['Server'],
+  'Next.js': icons['Router'],
+  Redux: icons['Replace'],
+  'Three.js': icons['Cube'],
+  Gatsby: icons['Rocket'],
+  'Ant Design': icons['BoxSelect'],
+  'Radix UI': icons['Disc'],
+  Shadcn: icons['PanelsTopLeft'],
+
+  // Styling
+  Tailwind: icons['Wind'],
+  CSS3: icons['Paintbrush'],
+  SASS: icons['Palette'],
+  'styled-components': icons['PenTool'],
+
+  // Testing
+  Jest: icons['TestTube2'],
+  Playwright: icons['MonitorPlay'],
+  'Testing Library': icons['Beaker'],
+
+  // Design Systems
+  Storybook: icons['BookOpen'],
+  Figma: icons['Figma'],
+  'Component-Driven Development': icons['Blocks'],
+  'UI/UX Collaboration': icons['Users'],
+  Accessibility: icons['Accessibility'],
+
+  // APIs & Tools
+  Vite: icons['Zap'],
+  'Apollo/GraphQL': icons['Waypoints'],
+  'Node Addon API': icons['Plug'],
+  gRPC: icons['ServerCog'],
+  i18next: icons['Languages'],
+  Zod: icons['ShieldCheck'],
+  'GitHub Actions': icons['Github'],
+  'Firebase Analytics': icons['BarChart'],
+  Sentry: icons['Bug'],
 };
 
 const technologyIcon = tv({
@@ -52,13 +90,12 @@ interface TechnologyIconProps extends TechnologyIconVariants, IconVariants {
 const TechnologyIcon: React.FC<TechnologyIconProps> = ({
   technology,
   size,
-  color,
   className,
 }) => {
   const Icon = iconMap[technology] || icons['Code'];
 
   return (
-    <div className={clsx(technologyIcon({ size, color }), 'tech-icon-container', className)}>
+    <div className={clsx(technologyIcon({ size }), 'tech-icon-container', className)}>
       <Icon className={clsx(iconVariants({ size }), 'text-white')} />
       <Icon className={clsx(iconVariants({ size }), 'absolute text-[#508bff] icon-hover-fill')} />
     </div>

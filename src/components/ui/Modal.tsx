@@ -18,7 +18,7 @@ interface ModalProps {
 export const Modal: FC<ModalProps> = ({ trigger, title, description, children }) => {
   return (
     <Dialog>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      <DialogTrigger>{trigger}</DialogTrigger>
       <DialogContent className="sm:max-w-7xl">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>

@@ -14,20 +14,16 @@ const iconMap: Record<string, React.FC<LucideProps>> = {
 };
 
 const technologyIcon = tv({
-  base: 'relative group rounded-full border flex items-center justify-center overflow-hidden transition-colors ease-in-out',
+  base: 'relative group rounded-full flex items-center justify-center overflow-hidden bg-rich-black-3',
   variants: {
     size: {
       small: 'w-12 h-12',
       medium: 'w-16 h-16',
       large: 'w-20 h-20',
     },
-    color: {
-      default: 'border-white',
-    },
   },
   defaultVariants: {
     size: 'medium',
-    color: 'default',
   },
 });
 

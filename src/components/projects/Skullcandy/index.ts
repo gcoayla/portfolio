@@ -1,1 +1,2 @@
-export { Skullcandy } from "./Skullcandy";
+export * from "./Skullcandy";
+export * from "./SoundWave";

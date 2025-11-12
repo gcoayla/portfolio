@@ -3,10 +3,12 @@ import skullcandyMock from "@/assets/mock.png";
 import TechnologyIcon from "@/components/ui/TechnologyIcon";
 import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/Modal";
+import { SoundWave } from "./SoundWave";
 
 export const Skullcandy = () => {
   return (
-    <div className="w-full flex flex-col md:flex-row justify-center items-center gap-8">
+    <div className="relative w-full flex flex-col md:flex-row justify-center items-center gap-8">
+      <SoundWave />
       <div className="w-[90%] md:w-[50%] flex flex-col gap-10">
         <div className="flex flex-col gap-8">
           <Typography variant="h1" className="text-white">

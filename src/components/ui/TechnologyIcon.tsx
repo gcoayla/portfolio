@@ -32,6 +32,7 @@ import {
 } from "@icons-pack/react-simple-icons";
 import { tv, type VariantProps } from "tailwind-variants";
 import { clsx } from "clsx";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const iconMap: Record<string, React.FC<LucideProps>> = {
   // Languages
@@ -85,9 +86,9 @@ const technologyIcon = tv({
   base: "relative group rounded-full aspect-square flex items-center justify-center overflow-hidden bg-rich-black-3",
   variants: {
     size: {
-      small: "min-w-12 w-12 h-12",
-      medium: "min-w-16 w-16 h-16",
-      large: "min-w-20 w-20 h-20",
+      small: "min-w-10 w-10 h-10",
+      medium: "min-w-12 w-12 h-12",
+      large: "min-w-16 w-16 h-16",
     },
   },
   defaultVariants: {
@@ -99,9 +100,9 @@ const iconVariants = tv({
   base: "transition-colors ease-in-out",
   variants: {
     size: {
-      small: "w-6 h-6",
-      medium: "w-8 h-8",
-      large: "w-10 h-10",
+      small: "w-5 h-5",
+      medium: "w-6 h-6",
+      large: "w-8 h-8",
     },
   },
   defaultVariants: {
@@ -109,19 +110,30 @@ const iconVariants = tv({
   },
 });
 
-type TechnologyIconVariants = VariantProps<typeof technologyIcon>;
-type IconVariants = VariantProps<typeof iconVariants>;
-
-interface TechnologyIconProps extends TechnologyIconVariants, IconVariants {
+interface TechnologyIconProps extends VariantProps<typeof technologyIcon> {
   technology: string;
   className?: string;
 }
 
 const TechnologyIcon: React.FC<TechnologyIconProps> = ({
   technology,
-  size,
   className,
+  size: sizeProp,
 }) => {
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isTablet = useMediaQuery("(min-width: 768px)");
+
+  const getIconSize = () => {
+    if (isDesktop) {
+      return "large";
+    }
+    if (isTablet) {
+      return "medium";
+    }
+    return "small";
+  };
+
+  const size = sizeProp || getIconSize();
   const Icon = iconMap[technology] || icons["Code"];
 
   return (

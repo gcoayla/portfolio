@@ -23,12 +23,12 @@ export const Skullcandy = () => {
             Technologies Used
           </Typography>
           <div className="flex gap-4 flex-wrap">
-            <TechnologyIcon technology="React" size="small" />
-            <TechnologyIcon technology="TypeScript" size="small" />
-            <TechnologyIcon technology="Electron" size="small" />
-            <TechnologyIcon technology="Node.js" size="small" />
-            <TechnologyIcon technology="Jest" size="small" />
-            <TechnologyIcon technology="Vite" size="small" />
+            <TechnologyIcon technology="React" />
+            <TechnologyIcon technology="TypeScript" />
+            <TechnologyIcon technology="Electron" />
+            <TechnologyIcon technology="Node.js" />
+            <TechnologyIcon technology="Jest" />
+            <TechnologyIcon technology="Vite" />
           </div>
         </div>
         <div className="flex gap-4">

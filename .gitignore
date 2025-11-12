@@ -14,6 +14,7 @@ yarn-error.log*
 pnpm-debug.log*
 dev.log
 dev_server.log
+yarn_dev.log
 
 # environment variables
 .env

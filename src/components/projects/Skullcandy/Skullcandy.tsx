@@ -22,7 +22,7 @@ export const Skullcandy = () => {
           <Typography variant="h6" className="text-white">
             Technologies Used
           </Typography>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
             <TechnologyIcon technology="React" size="small" />
             <TechnologyIcon technology="TypeScript" size="small" />
             <TechnologyIcon technology="Electron" size="small" />

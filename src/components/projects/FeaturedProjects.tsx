@@ -16,7 +16,7 @@ export const FeaturedProjects = () => {
         My Work
       </Typography>
       <Project>
-        <Skullcandy client:load />
+        <Skullcandy />
       </Project>
       <Project>
         <Typography variant="h3">Project 2</Typography>

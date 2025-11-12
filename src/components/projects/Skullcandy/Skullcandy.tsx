@@ -6,8 +6,8 @@ import { Modal } from "@/components/ui/Modal";
 
 export const Skullcandy = () => {
   return (
-    <div className="w-full flex flex-col md:flex-row justify-center items-center">
-      <div className="w-[90%] md:w-[40%] flex flex-col gap-10">
+    <div className="w-full flex flex-col md:flex-row justify-center items-center gap-8">
+      <div className="w-[90%] md:w-[50%] flex flex-col gap-10">
         <div className="flex flex-col gap-8">
           <Typography variant="h1" className="text-white">
             Skullcandy Skull-HQ
@@ -19,16 +19,16 @@ export const Skullcandy = () => {
           </Typography>
         </div>
         <div className="flex flex-col gap-6">
-          <Typography variant="h6" className="text-white">
-            Technologies Used
+          <Typography variant="h5" className="text-white">
+            Technologies:
           </Typography>
           <div className="flex gap-4 flex-wrap">
-            <TechnologyIcon technology="React" size="small" />
-            <TechnologyIcon technology="TypeScript" size="small" />
-            <TechnologyIcon technology="Electron" size="small" />
-            <TechnologyIcon technology="Node.js" size="small" />
-            <TechnologyIcon technology="Jest" size="small" />
-            <TechnologyIcon technology="Vite" size="small" />
+            <TechnologyIcon technology="React" />
+            <TechnologyIcon technology="TypeScript" />
+            <TechnologyIcon technology="Electron" />
+            <TechnologyIcon technology="Node.js" />
+            <TechnologyIcon technology="Jest" />
+            <TechnologyIcon technology="Vite" />
           </div>
         </div>
         <div className="flex gap-4">
@@ -43,7 +43,7 @@ export const Skullcandy = () => {
           </Modal>
         </div>
       </div>
-      <div className="w-[90%] md:w-[55%] flex justify-center items-center">
+      <div className="w-[90%] md:w-[40%] flex justify-center items-center">
         <img src={skullcandyMock.src} alt="Skullcandy Skull-HQ mock image" />
       </div>
     </div>

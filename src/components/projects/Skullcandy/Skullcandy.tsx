@@ -1,9 +1,10 @@
 import { Typography } from "@/components/ui/Typography";
 import skullcandyMock from "@/assets/mock.png";
-import TechnologyIcon from "@/components/ui/TechnologyIcon";
+import { TechnologyIcon } from "@/components/ui/TechnologyIcon";
 import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/Modal";
 import { SoundWave } from "./SoundWave";
+import { SkullcandyProjectDetails } from "./SkullcandyProjectDetails";
 
 export const Skullcandy = () => {
   return (
@@ -40,7 +41,7 @@ export const Skullcandy = () => {
               </Button>
             }
           >
-            <Typography variant="h3">Example</Typography>
+            <SkullcandyProjectDetails />
           </Modal>
         </div>
       </div>

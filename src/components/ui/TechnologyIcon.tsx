@@ -115,7 +115,7 @@ interface TechnologyIconProps extends VariantProps<typeof technologyIcon> {
   className?: string;
 }
 
-const TechnologyIcon: React.FC<TechnologyIconProps> = ({
+export const TechnologyIcon: React.FC<TechnologyIconProps> = ({
   technology,
   className,
   size: sizeProp,
@@ -154,5 +154,3 @@ const TechnologyIcon: React.FC<TechnologyIconProps> = ({
     </div>
   );
 };
-
-export default TechnologyIcon;

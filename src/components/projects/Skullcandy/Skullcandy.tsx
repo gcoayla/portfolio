@@ -7,9 +7,8 @@ import { SoundWave } from "./SoundWave";
 
 export const Skullcandy = () => {
   return (
-    <div className="relative w-full flex flex-col md:flex-row justify-center items-center gap-8">
-      <SoundWave />
-      <div className="w-[90%] md:w-[50%] flex flex-col gap-10">
+    <div className="w-full flex flex-col md:flex-row gap-8 md:gap-0 justify-center items-center ">
+      <div className="w-[90%] md:w-[50%] flex flex-col gap-10 z-20">
         <div className="flex flex-col gap-8">
           <Typography variant="h1" className="text-white">
             Skullcandy Skull-HQ
@@ -45,9 +44,10 @@ export const Skullcandy = () => {
           </Modal>
         </div>
       </div>
-      <div className="w-[90%] md:w-[40%] flex justify-center items-center">
+      <div className="w-[90%] md:w-[40%] flex justify-center items-center z-20">
         <img src={skullcandyMock.src} alt="Skullcandy Skull-HQ mock image" />
       </div>
+      <SoundWave />
     </div>
   );
 };

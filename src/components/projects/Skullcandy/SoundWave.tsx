@@ -13,7 +13,7 @@ export const SoundWave = () => {
       height="100%"
       viewBox="0 0 1440 500"
       preserveAspectRatio="xMidYMid slice"
-      className="absolute top-0 left-0 w-full h-full"
+      className="absolute top-0 left-0 w-full h-full z-10"
     >
       <defs>
         <motion.linearGradient
@@ -21,23 +21,23 @@ export const SoundWave = () => {
           gradientUnits="userSpaceOnUse"
           x1="0"
           y1="0"
-          x2="200"
+          x2="100"
           y2="0"
           animate={{
-            gradientTransform: ["translate(-200)", "translate(1440)"],
+            gradientTransform: ["translate(-100)", "translate(1440)"],
           }}
           transition={{
-            duration: 4,
+            duration: 60,
             repeat: Infinity,
             ease: "linear",
           }}
         >
           <stop offset="0" stopColor="transparent" />
-          <stop offset="0.5" stopColor="#00A6FB" />
+          <stop offset="0.5" stopColor="#01324eff" />
           <stop offset="1" stopColor="transparent" />
         </motion.linearGradient>
         <filter id="glow-filter">
-          <feGaussianBlur stdDeviation="10" />
+          <feGaussianBlur stdDeviation="1" />
         </filter>
       </defs>
 
@@ -47,7 +47,7 @@ export const SoundWave = () => {
         fill="none"
         stroke="#374151"
         strokeWidth="2"
-        strokeOpacity="0.4"
+        strokeOpacity="0.1"
         className="hidden md:block"
       />
       <path

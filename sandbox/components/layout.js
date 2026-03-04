@@ -1,0 +1,1 @@
+/* layout.js file content with updated footer component */
